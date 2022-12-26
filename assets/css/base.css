@@ -1,0 +1,176 @@
+/* 盒子相关 */
+
+.w100p {
+    width: 100%;
+}
+
+.w50p {
+    width: 50%;
+}
+
+.w40p {
+    width: 40%;
+}
+
+.w-200 {
+    width: 200px;
+}
+
+.h-260 {
+    height: 260px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px!important;
+}
+
+.ml-10 {
+    margin-left: 10px!important;
+}
+
+.mtb-20 {
+    margin: 20px 0;
+}
+
+.pl-60 {
+    padding-left: 60px;
+}
+
+.pr-20 {
+    padding-right: 20px;
+}
+
+.plr-20 {
+    padding: 0 20px;
+}
+
+
+/* 弹性盒相关 */
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-around {
+    justify-content: space-around;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+
+/* 浮动 */
+
+.float-right {
+    float: right;
+}
+
+
+/* 块类型 */
+
+.inline-block {
+    display: inline-block;
+}
+
+
+/* 字体颜色相关 */
+
+.ft-white {
+    color: white;
+}
+
+.ft-gray {
+    color: gray;
+}
+
+.ft-blue {
+    color: #0080C9;
+}
+
+.ft-red {
+    color: red;
+}
+
+
+/* 字体大小相关 */
+
+.ft-18 {
+    font-size: 18px;
+}
+
+.ft-24 {
+    font-size: 24px;
+}
+
+.ft-30 {
+    font-size: 30px;
+}
+
+
+/* 排版相关 */
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+
+/* 边框相关 */
+
+.bd-bottom {
+    border: none;
+}
+
+.bd-left {
+    border-left: solid 1px #e3e3e3;
+}
+
+.bd-right {
+    border-right: solid 1px #000;
+}
+
+::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 5px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #cccccc;
+}
+
+::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: transparent;
+}

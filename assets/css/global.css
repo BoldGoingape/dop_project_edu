@@ -1,0 +1,58 @@
+.el-table {
+    margin: 30px 0;
+}
+
+.el-table th>.cell,
+.el-table .cell {
+    text-align: center;
+}
+
+.el-pagination {
+    margin: 14px 0;
+    text-align: center;
+}
+
+.el-drawer__header {
+    padding: 12px 20px;
+    background-color: #e7e7e7;
+}
+
+.el-input {
+    margin: 0!important;
+}
+
+.el-dialog__header {
+    background-color: #0080C9!important;
+}
+
+.el-drawer__body {
+    padding: 0 20px;
+}
+
+.el-dialog__title {
+    color: white!important;
+    font-size: 16px!important;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.el-dialog__headerbtn .el-dialog__close {
+    color: white!important;
+}
+
+.el-dialog__footer {
+    text-align: center!important;
+}
+
+
+/* 关闭按钮 */
+
+.closebtn {
+    color: deeppink;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: red;
+    text-decoration: underline;
+}
