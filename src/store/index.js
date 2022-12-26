@@ -10,7 +10,7 @@ const actions = {};
 const mutations = {};
 //准备state存储 数据
 const state = {
-  isShow: true,
+  isShow: false,
 };
 //暴露store
 export default new Vuex.Store({
