@@ -170,35 +170,12 @@ export default {
   methods: {
     async login() {},
     open4() {
+      setTimeout(() => {
+        this.$store.dispatch("isShow", true);
+      }, 2000);
       this.$message.error("用户名或密码错误，登录失败！");
     },
-    open() {
-      this.$alert(
-        `<div>
-          <div class="moneBox" style="width: 00px; height:400px; background-color: red">
-            <el-row>
-      <el-col :span="2  " v-for="(o, index) in 2" :key="index">
-        <el-card style="margin: 5px 5px">
-          <img
-            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            class="image"
-          />
-          <div style="padding: 1px">
-            <span>好吃的汉堡</span>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
-  </div>
-          </div>`,
 
-        {
-          title: "脑门",
-          dangerouslyUseHTMLString: true,
-          showConfirmButton: false,
-        }
-      );
-    },
   },
   mounted() {},
 };

@@ -1,13 +1,17 @@
 <template>
   <div class="moneBox" style="width: 550px; background-color: white">
-    <div style="display: flex; background-color: #0080c9">
+    <div style="display: flex; background-color: #0080c9" class="Tiele">
       <h4 style="margin-left: 5px">提示</h4>
-      <h4 style="margin-left: 90%; cursor: pointer">X</h4>
+      <h4 style="margin-left: 90%; cursor: pointer" @click="isShow">X</h4>
     </div>
     <el-row>
       <el-col :span="8" v-for="(item, index) in 6" :key="index">
         <el-card style="margin: 5px 5px">
-          <img :src="systemItems[index].iconUrl" class="image" />
+          <img
+            :src="systemItems[index].iconUrl"
+            class="image"
+            @click="inSys(index)"
+          />
           <div style="padding: 1px; text-align: center">
             <span>{{ systemItems[index].title }}</span>
           </div>
@@ -69,6 +73,34 @@ export default {
       ],
     };
   },
+  methods: {
+    isShow() {
+      this.$store.dispatch("isShow", false);
+    },
+    inSys(index) {
+      console.log(index);
+      if (index == 0) {
+        this.$router.push({
+          path: "/Home",
+        });
+        this.open2();
+      } else {
+        this.open3();
+      }
+    },
+    open2() {
+      this.$message({
+        message: "登录成功...",
+        type: "success",
+      });
+    },
+    open3() {
+      this.$message({
+        message: "目前仅开放仓储系统...",
+        type: "warning",
+      });
+    },
+  },
 };
 </script>
 
@@ -79,8 +111,14 @@ export default {
 }
 .moneBox {
   position: absolute;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
   top: 250px;
   left: 35%;
   z-index: 999;
+}
+.Tiele {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 </style>
