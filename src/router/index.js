@@ -1,5 +1,7 @@
 //管理路由
+import { Message } from "element-ui";
 import VueRouter from "Vue-router";
+// import LoginBox from "../components/LoginBox";
 import Home from "../components/Home";
 const router = new VueRouter({
   routes: [
@@ -11,8 +13,19 @@ const router = new VueRouter({
 });
 //全局前置路由
 router.beforeEach((to, from, next) => {
-  console.log(to, from);
-  next();
-  console.log(this.$store.state.isShow);
+  if (to.path === "/Home") {
+    if (sessionStorage.getItem("token") === "1008611") {
+      next();
+    } else {
+      Message({
+        message: "请先登录...",
+        type: "success",
+      });
+      next({
+        path: "/LoginBox",
+      });
+    }
+  }
+  console.log(to.path, from);
 });
 export default router;

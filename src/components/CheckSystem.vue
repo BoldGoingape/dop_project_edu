@@ -80,19 +80,13 @@ export default {
     inSys(index) {
       console.log(index);
       if (index == 0) {
+        this.$store.dispatch("isShow", false);
         this.$router.push({
           path: "/Home",
         });
-        this.open2();
       } else {
         this.open3();
       }
-    },
-    open2() {
-      this.$message({
-        message: "登录成功...",
-        type: "success",
-      });
     },
     open3() {
       this.$message({
@@ -115,7 +109,7 @@ export default {
   border-top-right-radius: 17px;
   top: 250px;
   left: 35%;
-  z-index: 999;
+  z-index: 855999;
 }
 .Tiele {
   border-top-left-radius: 15px;

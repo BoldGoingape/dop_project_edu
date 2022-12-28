@@ -172,10 +172,14 @@ export default {
     open4() {
       setTimeout(() => {
         this.$store.dispatch("isShow", true);
+        sessionStorage.setItem("token", "1008611");
       }, 2000);
-      this.$message.error("用户名或密码错误，登录失败！");
+      this.$message({
+        message: "用户名或密码错误，登录失败！",
+        duration: 1000,
+        type: "error",
+      });
     },
-
   },
   mounted() {},
 };
