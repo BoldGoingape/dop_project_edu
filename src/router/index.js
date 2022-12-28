@@ -14,7 +14,7 @@ const router = new VueRouter({
 //全局前置路由
 router.beforeEach((to, from, next) => {
   if (to.path === "/Home") {
-    if (sessionStorage.getItem("token") === "1008611") {
+    if (sessionStorage.getItem("token")) {
       next();
     } else {
       Message({
@@ -26,6 +26,5 @@ router.beforeEach((to, from, next) => {
       });
     }
   }
-  console.log(to.path, from);
 });
 export default router;

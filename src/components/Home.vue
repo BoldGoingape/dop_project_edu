@@ -55,31 +55,18 @@
               class="el-menu-vertical-demo"
               @open="handleOpen"
               @close="handleClose"
+              unique-opened
+              background-color="#0080c9"
+              text-color="#fff"
             >
-              <el-submenu index="1">
+              <el-submenu
+                index="1"
+                v-for="(item, index) in NavMenu"
+                :key="index"
+              >
                 <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>导航一</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="1-1">选项1</el-menu-item>
-                  <el-menu-item index="1-2">选项2</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="1">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>导航一</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="1-1">选项1</el-menu-item>
-                  <el-menu-item index="1-2">选项2</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="1">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>导航一</span>
+                  <i class="el-icon-document" style="color: white"></i>
+                  <span>{{ item.name }}</span>
                 </template>
                 <el-menu-item-group>
                   <el-menu-item index="1-1">选项1</el-menu-item>
@@ -90,22 +77,97 @@
           </div>
         </el-aside>
         <!-- 主体部分 -->
-        <el-main> </el-main>
+        <el-main>
+          <div class="tags">
+            <el-tag :class="{ active: at == 0 }" @click="switchTag(0, '欢迎页')"
+              >欢迎页</el-tag
+            >
+            <el-tag
+              v-for="item in tags"
+              :key="item.name"
+              :type="item.type"
+              closable
+              @close="tagClose(item)"
+              @click="switchTag(22, item.name)"
+              :class="{
+                active: at == 1 && item.name.trim() == tag.toString().trim(),
+              }"
+            >
+              {{ item.name }}
+            </el-tag>
+          </div>
+          <!-- 路由视口 -->
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Home-",
+  data() {
+    return {
+      at: 0,
+      tag: "欢迎页",
+      tags: [
+        { name: "用户", type: "" },
+        { name: "厂库", type: "" },
+      ],
+      NavMenu: [
+        {
+          id: "",
+          name: "入库记录",
+          menuList: {
+            id: "",
+            name: "",
+            parentId: "",
+            url: "",
+          },
+        },
+      ],
+    };
+  },
   methods: {
+    switchTag(index, item) {
+      console.log(index, item);
+    },
+    tagClose(index) {
+      console.log(index);
+    },
+    shwIdex(index) {
+      console.log(index.index);
+    },
     checkSystem() {
       this.$store.dispatch("isShow", true);
-      console.log(this.$store.state.isShow);
+    },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     },
   },
   mounted() {
+    //发送请求
+
+    (async function () {
+      const data = await axios({
+        method: "GET",
+        url: "http://121.89.192.46:7777//me/menus",
+      });
+      // .then((result) => {
+      //   console.log(result.data.data);
+      // })
+
+      for (let index = 0; index < data.data.data.length; index++) {
+        console.log(data.data.data[index]);
+      }
+    })();
     this.$message({
       message: "登录成功...",
       type: "success",

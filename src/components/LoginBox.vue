@@ -157,6 +157,7 @@
 </template>
 
 <script>
+import axios from "axios";
 // import axios from "axios";
 import img from "../../public/img/logo.png";
 export default {
@@ -170,18 +171,42 @@ export default {
   methods: {
     async login() {},
     open4() {
-      setTimeout(() => {
-        this.$store.dispatch("isShow", true);
-        sessionStorage.setItem("token", "1008611");
-      }, 2000);
-      this.$message({
-        message: "用户名或密码错误，登录失败！",
-        duration: 1000,
-        type: "error",
-      });
+      axios({
+        url: `/sys/login?userName=${this.userName}&userPsw=${this.passWord}`,
+        method: "POST",
+      })
+        .then((result) => {
+          console.log(result.data.data);
+          if (result.data.code === 200) {
+            this.$store.dispatch("isShow", true);
+            sessionStorage.setItem("token", result.data.data.token);
+          } else {
+            this.$message({
+              message: "用户名或密码错误，登录失败！",
+              duration: 1000,
+              type: "error",
+            });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
-  mounted() {},
+  mounted() {
+    //数据请求
+    axios.defaults.timeout = 3000;
+    axios.defaults.baseURL = "http://121.89.192.46:7777";
+    // (async function () {
+    //   const datas = axios({
+    //     url: "/sys/login?userName=chengxue1&userPsw=chengxue",
+    //     method: "POST",
+    //   });
+    //   const UserState = await datas;
+    //   console.log(UserState);
+
+    // })();\
+  },
 };
 </script>
 <link href="../../public/css/default.css" rel="stylesheet" type="text/css" />

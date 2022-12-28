@@ -78,7 +78,6 @@ export default {
       this.$store.dispatch("isShow", false);
     },
     inSys(index) {
-      console.log(index);
       if (index == 0) {
         this.$store.dispatch("isShow", false);
         this.$router.push({
