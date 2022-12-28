@@ -158,7 +158,7 @@ export default {
     (async function () {
       const data = await axios({
         method: "GET",
-        url: "http://121.89.192.46:7777//me/menus",
+        url: "//me/menus",
       });
       // .then((result) => {
       //   console.log(result.data.data);

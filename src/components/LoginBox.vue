@@ -196,7 +196,7 @@ export default {
   mounted() {
     //数据请求
     axios.defaults.timeout = 3000;
-    axios.defaults.baseURL = "http://121.89.192.46:7777";
+    axios.defaults.baseURL = "";
     // (async function () {
     //   const datas = axios({
     //     url: "/sys/login?userName=chengxue1&userPsw=chengxue",
